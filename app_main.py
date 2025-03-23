@@ -1,44 +1,95 @@
 import streamlit as st
 
-# Thiết lập cấu hình trang với layout rộng và biểu tượng
+# Cấu hình trang
 st.set_page_config(
-    page_title="Multi-Page App",
-    page_icon="📊",
+    page_title="Ứng dụng Đa Năng",
+    page_icon="🚀",
     layout="wide",
 )
 
-# Sidebar với nền đen và chữ trắng
-st.sidebar.markdown(
-    """
-    <div style='background-color: #1E1E1E; padding: 10px; border-radius: 5px;'>
-        <h2 style='text-align: center; color: #FFFFFF;'>🧭 Điều hướng Ứng dụng</h2>
-        <p style='text-align: center; color: #D3D3D3;'>Chọn một ứng dụng để trải nghiệm!</p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# Tạo layout hai cột: Sidebar bên trái, nội dung bên phải
+col1, col2 = st.columns([1, 3])
 
-# Nội dung chính với nền đen và chữ trắng
-st.title("🌟 Ứng dụng Đa năng với Streamlit")
-st.markdown(
-    """
-    <div style='background-color: #1E1E1E; padding: 20px; border-radius: 10px;'>
-        <h3 style='color: #4DA8DA;'>📋 Danh sách Ứng dụng</h3>
-        <p style='color: #D3D3D3;'>Khám phá các ứng dụng thú vị bên dưới:</p>
-        <ul style='list-style-type: none; padding-left: 0; color: #FFFFFF;'>
-            <li>➡️ <strong style='color: #FF6F61;'>Linear Regression</strong>: Phân tích hồi quy tuyến tính.</li>
-            <li>➡️ <strong style='color: #FF6F61;'>MNIST Classification</strong>: Phân loại chữ số viết tay.</li>
-            <li>➡️ <strong style='color: #FF6F61;'>Clustering Algorithms</strong>: Các thuật toán phân cụm.</li>
-            <li>➡️ <strong style='color: #FF6F61;'>Assignment - PCA & t-SNE MNIST</strong>: Các kỹ thuật giảm chiều dữ liệu trên tập MNIST.</li>
-            <li>➡️ <strong style='color: #FF6F61;'>NeuralNetwork_MNIST</strong>: .</li>
+with col1:
+    # Sidebar với thiết kế mới
+    st.markdown(
+        """
+        <style>
+            .sidebar-content {
+                background: linear-gradient(135deg, #232526, #414345);
+                padding: 15px;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .sidebar-content h2 {
+                color: #FFFFFF;
+            }
+            .sidebar-content p {
+                color: #D3D3D3;
+            }
+        </style>
+        <div class="sidebar-content">
+            <h2>🌟 Menu</h2>
+            <p>Chọn một ứng dụng để trải nghiệm!</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-        </ul>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-# Footer với nền đen và chữ xám nhạt
+with col2:
+    # Tiêu đề chính
+    st.title("🚀 Ứng dụng Đa Năng với Streamlit")
+
+    # Danh sách ứng dụng dạng Grid
+    st.markdown(
+        """
+        <style>
+            .app-container {
+                background: linear-gradient(135deg, #2C3E50, #4CA1AF);
+                padding: 20px;
+                border-radius: 12px;
+                text-align: center;
+            }
+            .app-title {
+                color: #FFC107;
+                font-size: 22px;
+                font-weight: bold;
+            }
+            .app-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                list-style: none;
+                padding: 0;
+            }
+            .app-item {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 15px;
+                border-radius: 8px;
+                font-size: 16px;
+                color: #FFFFFF;
+                font-weight: 500;
+            }
+            .app-item strong {
+                color: #FFEB3B;
+            }
+        </style>
+        <div class="app-container">
+            <h3 class="app-title">📋 Danh sách Ứng Dụng</h3>
+            <ul class="app-grid">
+                <li class="app-item">📊 <strong>Linear Regression</strong><br> Phân tích hồi quy tuyến tính.</li>
+                <li class="app-item">🔢 <strong>MNIST Classification</strong><br> Nhận dạng chữ số viết tay.</li>
+                <li class="app-item">📌 <strong>Clustering Algorithms</strong><br> Thuật toán phân cụm dữ liệu.</li>
+                <li class="app-item">📉 <strong>PCA & t-SNE MNIST</strong><br> Giảm chiều dữ liệu với PCA và t-SNE.</li>
+                <li class="app-item">🧠 <strong>Neural Network MNIST</strong><br> Mô hình mạng nơ-ron nhân tạo.</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# Footer
 st.markdown(
-    "<p style='text-align: center; color: #A9A9A9; font-size: 12px;'>Được xây dựng với Streamlit</p>",
+    "<p style='text-align: center; color: #B0BEC5; font-size: 12px;'>🚀 Được phát triển với Streamlit</p>",
     unsafe_allow_html=True
 )
